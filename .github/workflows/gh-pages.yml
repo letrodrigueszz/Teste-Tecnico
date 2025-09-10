@@ -25,6 +25,11 @@ jobs:
         working-directory: frontend
         run: npm run build -- --base-href "/Teste-Tecnico/"
 
+      - name: Prepare SPA routing and disable Jekyll
+        run: |
+          cp frontend/dist/frontend/browser/index.html frontend/dist/frontend/browser/404.html
+          touch frontend/dist/frontend/browser/.nojekyll
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
