@@ -1,0 +1,22 @@
+# Java / Maven
+target/
+*.log
+*.tmp
+*.out
+
+# Node/Angular
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/cache/
+
+# IDEs/OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Others
+*.swp
+*.swo
+
