@@ -1,4 +1,4 @@
-# Guia Técnico do Projeto
+ro# Guia Técnico do Projeto
 
 Documento técnico do backend (Java 8) e frontend (Angular) com detalhes de build, execução, contratos de API, segurança, persistência e migrações.
 
