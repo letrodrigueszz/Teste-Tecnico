@@ -5,8 +5,6 @@ import com.example.testetecnico.model.Card;
 import com.example.testetecnico.repository.UserRepository;
 import com.example.testetecnico.repository.CardRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import com.example.testetecnico.repository.UserRepository;
-import com.example.testetecnico.repository.CardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,13 +39,13 @@ public class UserService {
     }
 
     public Card adicionarCartao(Long userId, Card card) {
-        User user = userRepository.findById(userId).orElseThrow();
+        User user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
         card.setUser(user);
         return cardRepository.save(card);
     }
 
     public void removerCartao(Long userId, Long cardId) {
-        Card card = cardRepository.findById(cardId).orElseThrow();
+        Card card = cardRepository.findById(cardId).orElseThrow(() -> new RuntimeException("Cartão não encontrado"));
         if (card.getUser().getId().equals(userId)) {
             cardRepository.delete(card);
         }
