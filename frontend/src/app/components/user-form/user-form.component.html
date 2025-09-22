@@ -1,0 +1,23 @@
+<div class="container mt-4">
+  <h2>{{ isEditMode ? 'Alterar Usuário' : 'Incluir Usuário' }}</h2>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" id="username" formControlName="username" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" id="email" formControlName="email" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" id="password" formControlName="password" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="role" class="form-label">Role</label>
+      <input type="text" id="role" formControlName="role" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Salvar</button>
+    <a routerLink="/users" class="btn btn-secondary ms-2">Cancelar</a>
+  </form>
+</div>
